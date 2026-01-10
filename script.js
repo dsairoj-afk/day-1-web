@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
   message.textContent = "Page loaded. Enter your name and click the button.";
 
   button.addEventListener("click", function () {
-    const name = input.ariaValueMax;
+    const name = input.value;
 
-    if(name ==="") {
+    if(name === "") {
       message.textContent = "You did not enter your name";
     } else{
       message.textContent = " Hello "+ name + ", Javascript is working";
