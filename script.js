@@ -1,3 +1,4 @@
+// TEMP CHANGE
 document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("nameInput");
   const button = document.getElementById("greetBtn");
