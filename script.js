@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("greetBtn");
   const input = document.getElementById("nameInput");
+  const button = document.getElementById("greetBtn");
   const message = document.getElementById("message");
 
-  button.addEventListener("click", function () {
-    const name = input.value;
+  message.textContent = "Page loaded. Enter your name and click the button.";
 
-    if (name === "") {
-      message.textContent = "Please enter your name.";
-    } else {
-      message.textContent = "Hello, " + name + "! Welcome to my website.";
+  button.addEventListener("click", function () {
+    const name = input.ariaValueMax;
+
+    if(name ==="") {
+      message.textContent = "You did not enter your name";
+    } else{
+      message.textContent = " Hello "+ name + ", Javascript is working";
     }
   });
 });
-
-
