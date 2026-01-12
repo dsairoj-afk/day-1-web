@@ -4,6 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
   const ageInput= document.getElementById("ageInput");
   const button = document.getElementById("greetBtn");
   const message = document.getElementById("message");
+  const submissions = [];
+  window.submissions = submissions;
+  const historyList = document.getElementById("history");
+  
 
   function getAccessMessage(name,age) {
     if(!name)
@@ -21,12 +25,41 @@ document.addEventListener("DOMContentLoaded", function () {
     return `Welcome ${name}, Access granted.`;
   }
 
+
+  function renderHistory() {
+    historyList.innerHTML = "";
+
+    for(let i=0; i<submissions.length; i++)
+    {
+      const item = document.createElement("li");
+      item.textContent = `${submissions[i].name} (${submissions[i].age})`;
+      historyList.appendChild(item);
+    }
+  }
+
   button.addEventListener("click", function () {
     const name = nameInput.value.trim();
     const age = Number(ageInput.value);
 
     const result = getAccessMessage(name,age);
     message.textContent = result;
+
+    if(
+      result === "Name is required," ||
+      result === "Please enter valid age." ||
+      result.includes("Sorry")
+    ){
+      return;
+    }
+
+    submissions.push({
+      name: name,
+      age: age
+    });
+    renderHistory();
   });
+
+  
+  
 
 });
