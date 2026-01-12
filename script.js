@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
   button.addEventListener("click", function () {
     const name = nameInput.value.trim();
     const age = Number(ageInput.value);
+    console.log(submissions);
 
     const result = getAccessMessage(name,age);
     message.textContent = result;
