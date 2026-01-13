@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
   const submissions = [];
   window.submissions = submissions;
   const historyList = document.getElementById("history");
+  const saved = localStorage.getItem("submissions");
+
+  if(saved)
+  {
+    submissions.push(...JSON.parse(saved));
+  }
   
 
   function getAccessMessage(name,age) {
@@ -57,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       name: name,
       age: age
     });
+    localStorage.setItem("submissions", JSON.stringify(submissions));
     renderHistory();
   });
 
